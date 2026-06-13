@@ -1,8 +1,8 @@
-# 📢 Bisector App Announcements
+# Bisector App Announcements
 
 This repo hosts the remote announcements configuration for the **Bisector** app by Reliance Fiber & Power.
 
-## 🚀 How It Works
+#3 How It Works
 
 The Bisector app fetches `announcements.json` from this repo on every launch. Updates you make here will appear in the app within 24 hours (or immediately for users who reinstall/clear cache).
 
@@ -169,12 +169,8 @@ Icons use Apple's **SF Symbols**. Here are some recommended ones:
 ## ⚡ Tips
 
 - **Keep it short** — Titles under 40 characters, body under 100 characters
-- **3 announcements max** — Don't overwhelm users
+- **3 announcements max**
 - **Remove old announcements** — Delete events after they pass
 - **Test your JSON** — Use [jsonlint.com](https://jsonlint.com) to validate before committing
 
 ---
-
-## 🆘 Need Help?
-
-Contact the app development team if you run into issues.
