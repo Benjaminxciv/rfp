@@ -1,0 +1,34 @@
+name: Lint JSON
+
+on:
+  push:
+    paths:
+      - '**/*.json'
+  pull_request:
+    paths:
+      - '**/*.json'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        run: |
+          errors=0
+          for file in $(find . -name '*.json' -type f); do
+            if ! python3 -m json.tool "$file" > /dev/null 2>&1; then
+              echo "::error file=$file::Invalid JSON syntax"
+              python3 -m json.tool "$file" 2>&1 || true
+              errors=$((errors + 1))
+            else
+              echo "✓ $file"
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "Found $errors invalid JSON file(s)"
+            exit 1
+          fi
+          echo "All JSON files are valid"
