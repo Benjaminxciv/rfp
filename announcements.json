@@ -13,6 +13,13 @@
       "title": "Field Training · Jun 15 2026",
       "body": "Register through the company portal",
       "tag": "EVENT"
+    },
+     {
+      "icon": "calendar.badge.checkmark",
+      "color": "red",
+      "title": "Christmas · Dec. 25th ",
+      "body": "Register through the company portal",
+      "tag": "EVENT"
     }
   ]
 }
