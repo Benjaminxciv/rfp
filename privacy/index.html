@@ -5,63 +5,202 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Bisector App</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            line-height: 1.6;
-            color: #333;
+        :root {
+            --rfp-yellow: rgb(242, 191, 38);
+            --rfp-yellow-dim: rgba(242, 191, 38, 0.25);
         }
-        h1 { color: #1a1a1a; }
-        h2 { color: #444; margin-top: 30px; }
-        a { color: #007AFF; }
-        .last-updated { color: #666; font-size: 0.9em; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(145deg, #0a0a0a 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--rfp-yellow);
+            text-decoration: none;
+            margin-bottom: 24px;
+            transition: opacity 0.2s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(180deg, rgba(242, 191, 38, 0.08) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .card-border {
+            position: absolute;
+            inset: 0;
+            border-radius: 28px;
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, rgba(242, 191, 38, 0.5), rgba(242, 191, 38, 0.1)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .header {
+            padding: 34px 32px 26px;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .last-updated {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--rfp-yellow-dim);
+            margin: 0 24px;
+        }
+
+        .content {
+            padding: 32px;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--rfp-yellow);
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 12px;
+        }
+
+        ul {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            font-size: 14px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 8px;
+        }
+
+        li::marker {
+            color: var(--rfp-yellow);
+        }
     </style>
 </head>
 <body>
-    <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: June 20, 2026</p>
+    <div class="container">
+        <a href="/rfp/" class="back-link">
+            <span>&#8592;</span>
+            <span>Back to Home</span>
+        </a>
 
-    <h2>Overview</h2>
-    <p>Bisector App ("we", "our", or "the app") is committed to protecting your privacy. This privacy policy explains how we handle information when you use our iOS application.</p>
+        <div class="card">
+            <div class="card-border"></div>
 
-    <h2>Information Collection</h2>
-    <p>Bisector App does not collect or transmit any personal information. The app does not require account creation or login.</p>
+            <div class="header">
+                <h1>Privacy Policy</h1>
+                <p class="last-updated">Last updated: June 20, 2026</p>
+            </div>
 
-    <h2>Location Data</h2>
-    <p>The app requests access to your device's location services to provide compass headings and save GPS coordinates with your captures. This location data is:</p>
-    <ul>
-        <li>Stored locally on your device only</li>
-        <li>Never transmitted to our servers or any third parties</li>
-        <li>Fully under your control and can be deleted at any time</li>
-    </ul>
-    <p>You can disable location access at any time through your device's Settings.</p>
+            <div class="divider"></div>
 
-    <h2>Camera Access</h2>
-    <p>The app uses your device's camera to display a live viewfinder so you can sight objects while capturing compass bearings. The camera feed is displayed in real-time only and is not recorded, stored, or transmitted.</p>
+            <div class="content">
+                <h2>Overview</h2>
+                <p>Bisector App ("we", "our", or "the app") is committed to protecting your privacy. This privacy policy explains how we handle information when you use our iOS application.</p>
 
-    <h2>Device Sensors</h2>
-    <p>The app uses your device's magnetometer (compass), accelerometer, and gyroscope to calculate headings and device orientation. This sensor data is processed locally and is not stored or transmitted.</p>
+                <h2>Information Collection</h2>
+                <p>Bisector App does not collect or transmit any personal information. The app does not require account creation or login.</p>
 
-    <h2>Data Storage</h2>
-    <p>All capture data (angles, GPS coordinates, timestamps) is stored locally on your device. We do not have access to any of your data. You can delete captures at any time within the app.</p>
+                <h2>Location Data</h2>
+                <p>The app requests access to your device's location services to provide compass headings and save GPS coordinates with your captures. This location data is:</p>
+                <ul>
+                    <li>Stored locally on your device only</li>
+                    <li>Never transmitted to our servers or any third parties</li>
+                    <li>Fully under your control and can be deleted at any time</li>
+                </ul>
+                <p>You can disable location access at any time through your device's Settings.</p>
 
-    <h2>Network Requests</h2>
-    <p>The app fetches in-app announcements from a public server. This request does not include any personal information or device identifiers. No user data is transmitted.</p>
+                <h2>Camera Access</h2>
+                <p>The app uses your device's camera to display a live viewfinder so you can sight objects while capturing compass bearings. The camera feed is displayed in real-time only and is not recorded, stored, or transmitted.</p>
 
-    <h2>Third-Party Services</h2>
-    <p>Bisector App does not integrate with any third-party analytics, advertising, or tracking services.</p>
+                <h2>Device Sensors</h2>
+                <p>The app uses your device's magnetometer (compass), accelerometer, and gyroscope to calculate headings and device orientation. This sensor data is processed locally and is not stored or transmitted.</p>
 
-    <h2>Children's Privacy</h2>
-    <p>Our app does not collect personal information from anyone, including children under 13.</p>
+                <h2>Data Storage</h2>
+                <p>All capture data (angles, GPS coordinates, timestamps) is stored locally on your device. We do not have access to any of your data. You can delete captures at any time within the app.</p>
 
-    <h2>Changes to This Policy</h2>
-    <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+                <h2>Network Requests</h2>
+                <p>The app fetches in-app announcements from a public server. This request does not include any personal information or device identifiers. No user data is transmitted.</p>
 
-    <h2>Contact</h2>
-    <p>If you have any questions about this privacy policy, please contact us through the App Store.</p>
+                <h2>Third-Party Services</h2>
+                <p>Bisector App does not integrate with any third-party analytics, advertising, or tracking services.</p>
 
-    <p><a href="/rfp/">← Back to Home</a></p>
+                <h2>Children's Privacy</h2>
+                <p>Our app does not collect personal information from anyone, including children under 13.</p>
+
+                <h2>Changes to This Policy</h2>
+                <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+
+                <h2>Contact</h2>
+                <p>If you have any questions about this privacy policy, please contact us through the App Store or at <a href="mailto:info@reliancefiberandpower.com" style="color: var(--rfp-yellow);">info@reliancefiberandpower.com</a>.</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
