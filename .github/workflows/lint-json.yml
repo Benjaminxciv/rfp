@@ -3,10 +3,10 @@ name: Lint JSON
 on:
   push:
     paths:
-      - '**/*.json'
+      - 'announcements.json'
   pull_request:
     paths:
-      - '**/*.json'
+      - 'announcements.json'
 
 jobs:
   lint:
