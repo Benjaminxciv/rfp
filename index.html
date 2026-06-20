@@ -3,24 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bisector App</title>
+    <title>Bisector App - Reliance Fiber & Power</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            line-height: 1.6;
-            color: #333;
+        :root {
+            --rfp-yellow: rgb(242, 191, 38);
+            --rfp-yellow-dim: rgba(242, 191, 38, 0.25);
         }
-        h1 { color: #1a1a1a; }
-        a { color: #007AFF; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(145deg, #0a0a0a 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            color: #fff;
+        }
+
+        .card {
+            max-width: 420px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 28px;
+            border: 1px solid;
+            border-image: linear-gradient(135deg, rgba(242, 191, 38, 0.5), rgba(242, 191, 38, 0.1)) 1;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 35%;
+            background: linear-gradient(180deg, rgba(242, 191, 38, 0.08) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .card-border {
+            position: absolute;
+            inset: 0;
+            border-radius: 28px;
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, rgba(242, 191, 38, 0.5), rgba(242, 191, 38, 0.1)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .header {
+            padding: 34px 24px 26px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 16px rgba(242, 191, 38, 0.5));
+            margin-bottom: 14px;
+        }
+
+        .tagline {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--rfp-yellow);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .description {
+            font-size: 13px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.6;
+            padding: 0 8px;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--rfp-yellow-dim);
+            margin: 0 20px;
+        }
+
+        .content {
+            padding: 24px 22px;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 2.5px;
+            margin-bottom: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.055);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 13px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(242, 191, 38, 0.3);
+        }
+
+        .nav-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(242, 191, 38, 0.16);
+            border-radius: 9px;
+            font-size: 16px;
+        }
+
+        .nav-text h3 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .nav-text p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.58);
+        }
+
+        .footer {
+            padding: 18px 22px 28px;
+            text-align: center;
+        }
+
+        .app-store-badge {
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .app-store-badge img {
+            height: 44px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--rfp-yellow);
+        }
+
+        .footer-divider {
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        .copyright {
+            font-size: 10px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.25);
+            letter-spacing: 1.5px;
+        }
     </style>
 </head>
 <body>
-    <h1>Bisector App</h1>
-    <p>A compass tool for capturing bearings and calculating bisector angles.</p>
-    <p><a href="/rfp/support">Support & FAQ</a></p>
-    <p><a href="/rfp/privacy">Privacy Policy</a></p>
+    <div class="card">
+        <div class="card-border"></div>
+
+        <div class="header">
+            <img src="logo.jpg" alt="RFP Logo" class="logo">
+            <div class="tagline">Reliance Fiber & Power</div>
+            <p class="description">
+                A precision compass tool for capturing bearings and calculating bisector angles in the field.
+            </p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="content">
+            <div class="section-label">
+                <span>&#128279;</span>
+                <span>QUICK LINKS</span>
+            </div>
+            <div class="nav-links">
+                <a href="/rfp/support" class="nav-link">
+                    <div class="nav-icon">&#128172;</div>
+                    <div class="nav-text">
+                        <h3>Support & FAQ</h3>
+                        <p>Get help and find answers</p>
+                    </div>
+                </a>
+                <a href="/rfp/privacy" class="nav-link">
+                    <div class="nav-icon">&#128274;</div>
+                    <div class="nav-text">
+                        <h3>Privacy Policy</h3>
+                        <p>How we protect your data</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="footer">
+            <div class="footer-links">
+                <a href="https://reliancefiberandpower.com" class="footer-link">
+                    <span>&#127760;</span>
+                    <span>reliancefiberandpower.com</span>
+                </a>
+                <span class="footer-divider">·</span>
+                <a href="mailto:info@reliancefiberandpower.com" class="footer-link">
+                    <span>&#9993;</span>
+                    <span>Contact</span>
+                </a>
+            </div>
+            <div class="copyright">Reliance Fiber & Power · Bisector</div>
+        </div>
+    </div>
 </body>
 </html>
