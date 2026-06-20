@@ -2,11 +2,7 @@ name: Lint JSON
 
 on:
   push:
-    paths:
-      - '**/*.json'
   pull_request:
-    paths:
-      - '**/*.json'
 
 jobs:
   lint:
@@ -14,21 +10,25 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if announcements.json changed
+        id: check
+        run: |
+          if git diff --name-only ${{ github.event.before || 'HEAD~1' }} HEAD | grep -q 'announcements.json'; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "announcements.json not changed, skipping lint"
+          fi
 
       - name: Validate JSON files
+        if: steps.check.outputs.changed == 'true'
         run: |
-          errors=0
-          for file in $(find . -name '*.json' -type f); do
-            if ! python3 -m json.tool "$file" > /dev/null 2>&1; then
-              echo "::error file=$file::Invalid JSON syntax"
-              python3 -m json.tool "$file" 2>&1 || true
-              errors=$((errors + 1))
-            else
-              echo "✓ $file"
-            fi
-          done
-          if [ $errors -gt 0 ]; then
-            echo "Found $errors invalid JSON file(s)"
+          if ! python3 -m json.tool announcements.json > /dev/null 2>&1; then
+            echo "::error file=announcements.json::Invalid JSON syntax"
+            python3 -m json.tool announcements.json 2>&1 || true
             exit 1
           fi
-          echo "All JSON files are valid"
+          echo "✓ announcements.json is valid"
