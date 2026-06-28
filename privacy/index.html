@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Bisector App</title>
+    <title>Privacy Policy - Bisector by RFP</title>
     <style>
         :root {
             --rfp-yellow: rgb(242, 191, 38);
@@ -20,184 +20,382 @@
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background: linear-gradient(145deg, #0a0a0a 0%, #1a1a1a 100%);
             min-height: 100vh;
-            padding: 40px 20px;
             color: #fff;
         }
 
-        .container {
-            max-width: 680px;
+        /* Header */
+        header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .header-logo {
+            height: 40px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--rfp-yellow);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px 100px;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
         }
 
         .back-link {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-size: 13px;
+            gap: 8px;
+            font-size: 14px;
             font-weight: 500;
             color: var(--rfp-yellow);
             text-decoration: none;
             margin-bottom: 24px;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.2s;
         }
 
         .back-link:hover {
             opacity: 0.8;
         }
 
-        .card {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
-            position: relative;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 200px;
-            background: linear-gradient(180deg, rgba(242, 191, 38, 0.08) 0%, transparent 100%);
-            pointer-events: none;
-        }
-
-        .card-border {
-            position: absolute;
-            inset: 0;
-            border-radius: 28px;
-            border: 1px solid transparent;
-            background: linear-gradient(135deg, rgba(242, 191, 38, 0.5), rgba(242, 191, 38, 0.1)) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: destination-out;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-
-        .header {
-            padding: 34px 32px 26px;
-            text-align: center;
-            position: relative;
+        .back-link svg {
+            width: 16px;
+            height: 16px;
         }
 
         h1 {
-            font-size: 28px;
+            font-size: 48px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .last-updated {
-            font-size: 12px;
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.5);
         }
 
-        .divider {
-            height: 1px;
-            background: var(--rfp-yellow-dim);
-            margin: 0 24px;
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 48px;
         }
 
-        .content {
-            padding: 32px;
-            position: relative;
-        }
-
-        h2 {
-            font-size: 16px;
+        .content-section h2 {
+            font-size: 20px;
             font-weight: 600;
             color: var(--rfp-yellow);
-            margin-top: 28px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        h2:first-child {
-            margin-top: 0;
+        .content-section h2 svg {
+            width: 24px;
+            height: 24px;
+            opacity: 0.8;
         }
 
-        p {
-            font-size: 14px;
-            line-height: 1.7;
+        .content-section p {
+            font-size: 16px;
+            line-height: 1.8;
             color: rgba(255, 255, 255, 0.75);
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
-        ul {
-            margin: 12px 0;
-            padding-left: 20px;
+        .content-section ul {
+            margin: 16px 0;
+            padding-left: 24px;
         }
 
-        li {
-            font-size: 14px;
-            line-height: 1.7;
+        .content-section li {
+            font-size: 16px;
+            line-height: 1.8;
             color: rgba(255, 255, 255, 0.75);
             margin-bottom: 8px;
         }
 
-        li::marker {
+        .content-section li::marker {
             color: var(--rfp-yellow);
+        }
+
+        .content-section a {
+            color: var(--rfp-yellow);
+            text-decoration: none;
+        }
+
+        .content-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--rfp-yellow);
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            nav {
+                gap: 24px;
+            }
+
+            main {
+                padding: 40px 20px 80px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .content-section h2 {
+                font-size: 18px;
+            }
+
+            .content-section p,
+            .content-section li {
+                font-size: 15px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="/rfp/" class="back-link">
-            <span>&#8592;</span>
-            <span>Back to Home</span>
+    <header>
+        <a href="/rfp/">
+            <img src="../logo.jpg" alt="RFP Logo" class="header-logo">
         </a>
+        <nav>
+            <a href="/rfp/support">Support</a>
+            <a href="/rfp/privacy">Privacy</a>
+            <a href="https://reliancefiberandpower.com">Website</a>
+        </nav>
+    </header>
 
-        <div class="card">
-            <div class="card-border"></div>
-
-            <div class="header">
-                <h1>Privacy Policy</h1>
-                <p class="last-updated">Last updated: June 20, 2026</p>
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="content">
-                <h2>Overview</h2>
-                <p>Bisector App ("we", "our", or "the app") is committed to protecting your privacy. This privacy policy explains how we handle information when you use our iOS application.</p>
-
-                <h2>Information Collection</h2>
-                <p>Bisector App does not collect or transmit any personal information. The app does not require account creation or login.</p>
-
-                <h2>Location Data</h2>
-                <p>The app requests access to your device's location services to provide compass headings and save GPS coordinates with your captures. This location data is:</p>
-                <ul>
-                    <li>Stored locally on your device only</li>
-                    <li>Never transmitted to our servers or any third parties</li>
-                    <li>Fully under your control and can be deleted at any time</li>
-                </ul>
-                <p>You can disable location access at any time through your device's Settings.</p>
-
-                <h2>Camera Access</h2>
-                <p>The app uses your device's camera to display a live viewfinder so you can sight objects while capturing compass bearings. The camera feed is displayed in real-time only and is not recorded, stored, or transmitted.</p>
-
-                <h2>Device Sensors</h2>
-                <p>The app uses your device's magnetometer (compass), accelerometer, and gyroscope to calculate headings and device orientation. This sensor data is processed locally and is not stored or transmitted.</p>
-
-                <h2>Data Storage</h2>
-                <p>All capture data (angles, GPS coordinates, timestamps) is stored locally on your device. We do not have access to any of your data. You can delete captures at any time within the app.</p>
-
-                <h2>Network Requests</h2>
-                <p>The app fetches in-app announcements from a public server. This request does not include any personal information or device identifiers. No user data is transmitted.</p>
-
-                <h2>Third-Party Services</h2>
-                <p>Bisector App does not integrate with any third-party analytics, advertising, or tracking services.</p>
-
-                <h2>Changes to This Policy</h2>
-                <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
-
-                <h2>Contact</h2>
-                <p>If you have any questions about this privacy policy, please contact us through the App Store or at <a href="mailto:info@reliancefiberandpower.com" style="color: var(--rfp-yellow);">info@reliancefiberandpower.com</a>.</p>
-            </div>
+    <main>
+        <div class="page-header">
+            <a href="/rfp/" class="back-link">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </a>
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last updated: June 20, 2026</p>
         </div>
-    </div>
+
+        <div class="content-section">
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                Overview
+            </h2>
+            <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
+            <p>Bisector App does not collect, store, or transmit any Personal Data to external servers. All data generated by the app remains locally on Your Device. By using the Service, You agree to the handling of information in accordance with this Privacy Policy.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+                Interpretation and Definitions
+            </h2>
+            <p><strong>Interpretation:</strong> The words whose initial letters are capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+            <p><strong>Definitions:</strong> For the purposes of this Privacy Policy:</p>
+            <ul>
+                <li><strong>Application</strong> refers to Bisector, the software program provided by Reliance Fiber and Power.</li>
+                <li><strong>Device</strong> means any device that can access the Service such as a computer, a cell phone or a digital tablet.</li>
+                <li><strong>Personal Data</strong> (or "Personal Information") is any information that relates to an identified or identifiable individual.</li>
+                <li><strong>Service</strong> refers to the Application.</li>
+                <li><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                Information Collection
+            </h2>
+            <p>Bisector App does not collect or transmit any personal information. The app does not require account creation or login.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                Location Data
+            </h2>
+            <p>The app requests access to your device's location services to provide compass headings and save GPS coordinates with your captures. This location data is:</p>
+            <ul>
+                <li>Stored locally on your device only</li>
+                <li>Never transmitted to our servers or any third parties</li>
+                <li>Fully under your control and can be deleted at any time</li>
+            </ul>
+            <p>You can disable location access at any time through your device's Settings.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                Camera Access
+            </h2>
+            <p>The app uses your device's camera to display a live viewfinder so you can sight objects while capturing compass bearings. The camera feed is displayed in real-time only and is not recorded, stored, or transmitted.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                </svg>
+                Device Sensors
+            </h2>
+            <p>The app uses your device's magnetometer (compass), accelerometer, and gyroscope to calculate headings and device orientation. This sensor data is processed locally and is not stored or transmitted.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                </svg>
+                Data Storage
+            </h2>
+            <p>All capture data (angles, GPS coordinates, timestamps) is stored locally on your device. We do not have access to any of your data. You can delete captures at any time within the app.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                </svg>
+                Network Requests
+            </h2>
+            <p>The app fetches in-app announcements from a public server. This request does not include any personal information or device identifiers. No user data is transmitted.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+                Third-Party Services
+            </h2>
+            <p>Bisector App does not integrate with any third-party analytics, advertising, or tracking services.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+                Children's Privacy
+            </h2>
+            <p>Our Service does not address anyone under the age of 16. We do not knowingly collect personally identifiable information from anyone under the age of 16. If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us.</p>
+            <p>If we become aware that we have collected personal data from anyone under the age of 16 without verification of parental consent, we take steps to remove that information from our servers.</p>
+            <p>If we need to rely on consent as a legal basis for processing your information and your country requires consent from a parent, we may require your parent's consent before we collect and use that information.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+                Changes to This Policy
+            </h2>
+            <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                Contact
+            </h2>
+            <p>If you have any questions about this privacy policy, please contact us at <a href="mailto:info@reliancefiberandpower.com">info@reliancefiberandpower.com</a>.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/rfp/support">Support & FAQ</a>
+            <a href="/rfp/privacy">Privacy Policy</a>
+            <a href="mailto:info@reliancefiberandpower.com">Contact</a>
+        </div>
+        <div class="copyright">© 2026 Bisector by Reliance Fiber & Power. All rights reserved.</div>
+    </footer>
 </body>
 </html>
