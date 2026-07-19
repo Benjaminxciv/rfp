@@ -193,6 +193,13 @@
             gap: 20px;
         }
 
+        .announcements-empty {
+            display: none;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 15px;
+        }
+
         .announcement-card {
             padding: 24px;
             background: rgba(255, 255, 255, 0.03);
@@ -504,6 +511,7 @@
         <h2>Announcements</h2>
         <div class="announcements-grid" id="announcements-grid">
         </div>
+        <p class="announcements-empty" id="announcements-empty">No announcements</p>
     </section>
 
     <section class="features">
@@ -521,11 +529,11 @@
             <div class="feature-card">
                 <div class="feature-icon">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="28" height="28">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
                     </svg>
                 </div>
-                <h3>Auto Calculations</h3>
-                <p>Automatically calculate angles, reverse bisectors, and line angles between two captured bearings.</p>
+                <h3>Map View</h3>
+                <p>Search for captures by location and see all relevant captures for a given work area displayed on an interactive map.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
@@ -559,6 +567,11 @@
             .then(response => response.json())
             .then(data => {
                 const grid = document.getElementById('announcements-grid');
+                const emptyState = document.getElementById('announcements-empty');
+                if (!data.announcements.length) {
+                    emptyState.style.display = 'block';
+                    return;
+                }
                 data.announcements.forEach(announcement => {
                     const card = document.createElement('div');
                     card.className = 'announcement-card';
