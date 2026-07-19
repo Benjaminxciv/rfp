@@ -1,0 +1,25 @@
+{
+  "announcements": [
+    {
+      "icon": "star.fill",
+      "color": "yellow",
+      "title": "Bisector Pro — Now Available",
+      "body": "The latest build adds multi-point capture",
+      "tag": "NEW"
+    },
+    {
+      "icon": "calendar.badge.checkmark",
+      "color": "blue",
+      "title": "Field Training · Jun 15 2026",
+      "body": "Register through the company portal",
+      "tag": "EVENT"
+    },
+     {
+      "icon": "calendar.badge.checkmark",
+      "color": "red",
+      "title": "Christmas · Dec. 25th ",
+      "body": "Register through the company portal",
+      "tag": "EVENT"
+    }
+  ]
+}
