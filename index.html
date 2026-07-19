@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bisector by Reliance Fiber & Power</title>
+    <link rel="icon" type="image/jpeg" href="images/logo.jpg">
     <style>
         :root {
             --rfp-yellow: rgb(242, 191, 38);
@@ -140,6 +141,139 @@
             filter: drop-shadow(0 0 60px rgba(242, 191, 38, 0.3));
         }
 
+        /* iPhone mockup */
+        .phone-mockup {
+            position: relative;
+            width: 260px;
+            aspect-ratio: 9 / 19.5;
+            background: #111;
+            border-radius: 46px;
+            padding: 14px;
+            box-shadow:
+                0 0 0 2px rgba(255, 255, 255, 0.08),
+                0 30px 80px rgba(0, 0, 0, 0.6),
+                0 0 60px rgba(242, 191, 38, 0.25);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 32px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Announcements Section */
+        .announcements {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px 60px;
+        }
+
+        .announcements h2 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--rfp-yellow);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .announcements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .announcement-card {
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .announcement-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(242, 191, 38, 0.3);
+        }
+
+        .announcement-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .announcement-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .announcement-icon.yellow {
+            background: rgba(242, 191, 38, 0.15);
+            color: var(--rfp-yellow);
+        }
+
+        .announcement-icon.blue {
+            background: rgba(59, 130, 246, 0.15);
+            color: rgb(96, 165, 250);
+        }
+
+        .announcement-icon.red {
+            background: rgba(239, 68, 68, 0.15);
+            color: rgb(248, 113, 113);
+        }
+
+        .announcement-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin-left: auto;
+        }
+
+        .announcement-tag.yellow {
+            background: rgba(242, 191, 38, 0.2);
+            color: var(--rfp-yellow);
+        }
+
+        .announcement-tag.blue {
+            background: rgba(59, 130, 246, 0.2);
+            color: rgb(96, 165, 250);
+        }
+
+        .announcement-tag.red {
+            background: rgba(239, 68, 68, 0.2);
+            color: rgb(248, 113, 113);
+        }
+
+        .announcement-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .announcement-card p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
         /* Features Section */
         .features {
             max-width: 1400px;
@@ -263,7 +397,15 @@
                 max-width: 280px;
             }
 
+            .phone-mockup {
+                width: 220px;
+            }
+
             .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .announcements-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -306,6 +448,10 @@
                 padding: 60px 20px;
             }
 
+            .announcements {
+                padding: 0 20px 40px;
+            }
+
             footer {
                 flex-direction: column;
                 gap: 20px;
@@ -322,7 +468,7 @@
 </head>
 <body>
     <header>
-        <img src="logo.jpg" alt="RFP Logo" class="header-logo">
+        <img src="images/logo.jpg" alt="RFP Logo" class="header-logo">
         <nav>
             <a href="/rfp/support">Support</a>
             <a href="/rfp/privacy">Privacy</a>
@@ -332,7 +478,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1><span>Bisector</span> by Reliance Fiber & Power</h1>
-            <p>A precision compass tool for capturing bearings and calculating bisector angles. Designed for professionals who need accurate measurements in the field.</p>
+            <p>Captures front span and back span bearings and calculates the bisector bearing for overhead utility line stakeout.</p>
             <div class="hero-buttons">
                 <a href="https://apps.apple.com" class="btn-primary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -346,7 +492,17 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="logo.jpg" alt="Bisector App" class="hero-logo">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="images/app_screenshot.PNG" alt="Bisector App Screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="announcements">
+        <h2>Announcements</h2>
+        <div class="announcements-grid" id="announcements-grid">
         </div>
     </section>
 
@@ -369,7 +525,7 @@
                     </svg>
                 </div>
                 <h3>Auto Calculations</h3>
-                <p>Automatically calculate bisector angles, reverse bisectors, and line angles between two captured bearings.</p>
+                <p>Automatically calculate angles, reverse bisectors, and line angles between two captured bearings.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
@@ -379,7 +535,7 @@
                     </svg>
                 </div>
                 <h3>GPS Tagging</h3>
-                <p>Save GPS coordinates with each capture. View all your measurements on a map for easy reference.</p>
+                <p>Save GPS coordinates with each capture. View all your captures on a map for easy reference.</p>
             </div>
         </div>
     </section>
@@ -388,9 +544,38 @@
         <div class="footer-links">
             <a href="/rfp/support">Support & FAQ</a>
             <a href="/rfp/privacy">Privacy Policy</a>
-            <a href="mailto:info@reliancefiberandpower.com">Contact</a>
+            <a href="mailto:bisector@rfandp.com">Contact</a>
         </div>
         <div class="copyright">© 2026 Bisector by Reliance Fiber & Power. All rights reserved.</div>
     </footer>
+
+    <script>
+        const iconSVGs = {
+            'star.fill': '<svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
+            'calendar.badge.checkmark': '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l2 2 4-4"/></svg>'
+        };
+
+        fetch('announcements.json')
+            .then(response => response.json())
+            .then(data => {
+                const grid = document.getElementById('announcements-grid');
+                data.announcements.forEach(announcement => {
+                    const card = document.createElement('div');
+                    card.className = 'announcement-card';
+                    card.innerHTML = `
+                        <div class="announcement-header">
+                            <div class="announcement-icon ${announcement.color}">
+                                ${iconSVGs[announcement.icon] || ''}
+                            </div>
+                            <span class="announcement-tag ${announcement.color}">${announcement.tag}</span>
+                        </div>
+                        <h3>${announcement.title}</h3>
+                        <p>${announcement.body}</p>
+                    `;
+                    grid.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Error loading announcements:', error));
+    </script>
 </body>
 </html>
