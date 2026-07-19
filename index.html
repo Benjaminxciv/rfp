@@ -193,6 +193,13 @@
             gap: 20px;
         }
 
+        .announcements-empty {
+            display: none;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 15px;
+        }
+
         .announcement-card {
             padding: 24px;
             background: rgba(255, 255, 255, 0.03);
@@ -504,6 +511,7 @@
         <h2>Announcements</h2>
         <div class="announcements-grid" id="announcements-grid">
         </div>
+        <p class="announcements-empty" id="announcements-empty">No announcements</p>
     </section>
 
     <section class="features">
@@ -559,6 +567,11 @@
             .then(response => response.json())
             .then(data => {
                 const grid = document.getElementById('announcements-grid');
+                const emptyState = document.getElementById('announcements-empty');
+                if (!data.announcements.length) {
+                    emptyState.style.display = 'block';
+                    return;
+                }
                 data.announcements.forEach(announcement => {
                     const card = document.createElement('div');
                     card.className = 'announcement-card';
